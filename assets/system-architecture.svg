@@ -1,13 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 210" width="100%" height="100%" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" width="100%" height="100%" fill="none">
   <defs>
-    <linearGradient id="frameBg" x1="0" y1="0" x2="960" y2="210" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#0E0E14"/>
-      <stop offset="100%" stop-color="#08080B"/>
+    <linearGradient id="flowFrameBg" x1="0" y1="0" x2="960" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#09090E"/>
+      <stop offset="50%" stop-color="#12111D"/>
+      <stop offset="100%" stop-color="#08080C"/>
     </linearGradient>
 
-    <linearGradient id="nodeGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#181822"/>
-      <stop offset="100%" stop-color="#101016"/>
+    <!-- Node Glow Gradients -->
+    <linearGradient id="nodeActiveGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#222035"/>
+      <stop offset="100%" stop-color="#141320"/>
+    </linearGradient>
+
+    <!-- Kinetic Flow Gradient -->
+    <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFDB70" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#FFDB70" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.8"/>
     </linearGradient>
 
     <style>
@@ -17,56 +26,87 @@
       .font-mono {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       }
+
+      /* Animated Pipeline Pulse */
+      @keyframes pulseFlow {
+        0% { stroke-dashoffset: 48; }
+        100% { stroke-dashoffset: 0; }
+      }
+      .pulse-line {
+        stroke-dasharray: 8 6;
+        animation: pulseFlow 1.8s linear infinite;
+      }
+
+      @keyframes nodeGlow {
+        0% { opacity: 0.6; }
+        50% { opacity: 1; }
+        100% { opacity: 0.6; }
+      }
+      .glow-node {
+        animation: nodeGlow 3s ease-in-out infinite;
+      }
     </style>
   </defs>
 
   <!-- Container Surface -->
-  <rect width="960" height="210" rx="14" fill="url(#frameBg)"/>
-  <rect x="1" y="1" width="958" height="208" rx="13" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1.5"/>
+  <rect width="960" height="220" rx="18" fill="url(#flowFrameBg)"/>
+  <rect x="1.5" y="1.5" width="957" height="217" rx="16.5" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1.5"/>
 
-  <!-- Top Title -->
-  <g transform="translate(32, 32)">
-    <circle cx="5" cy="5" r="3" fill="#FFDB70"/>
-    <text x="16" y="9" class="font-mono" font-size="11" font-weight="600" fill="#FFDB70" letter-spacing="0.05em">PRODUCT DELIVERY PIPELINE</text>
+  <!-- Top Title HUD -->
+  <g transform="translate(36, 30)">
+    <rect x="0" y="0" width="230" height="24" rx="6" fill="#FFDB70" fill-opacity="0.15" stroke="#FFDB70" stroke-opacity="0.4" stroke-width="1"/>
+    <circle cx="12" cy="12" r="3.5" fill="#FFDB70"/>
+    <text x="24" y="16" class="font-mono" font-size="10.5" font-weight="700" fill="#FFDB70" letter-spacing="0.08em">PRODUCT DELIVERY PIPELINE</text>
   </g>
 
-  <!-- Step 1 -->
-  <g transform="translate(32, 60)">
-    <rect width="206" height="118" rx="10" fill="url(#nodeGrad)" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1"/>
-    <text x="16" y="27" class="font-mono" font-size="11" font-weight="700" fill="#FFDB70">01</text>
-    <text x="38" y="27" class="font-sans" font-size="13" font-weight="600" fill="#FAFAFA">Discover &amp; Scope</text>
-    <text x="16" y="56" class="font-sans" font-size="11.5" font-weight="400" fill="#A1A1AA">Problem space synthesis</text>
-    <text x="16" y="74" class="font-sans" font-size="11.5" font-weight="400" fill="#A1A1AA">User friction mapping</text>
-    <text x="16" y="92" class="font-sans" font-size="11.5" font-weight="400" fill="#A1A1AA">Measurable product goals</text>
+  <!-- Animated Pulsing Data Highway Track -->
+  <line x1="80" y1="124" x2="880" y2="124" stroke="url(#pulseGrad)" stroke-width="2.5" class="pulse-line"/>
+
+  <!-- Step 01: Discover & Scope -->
+  <g transform="translate(36, 64)">
+    <rect width="205" height="126" rx="12" fill="url(#nodeActiveGrad)" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1"/>
+    <rect x="1" y="1" width="203" height="2.5" fill="#FFDB70" fill-opacity="0.9"/>
+    <circle cx="22" cy="28" r="11" fill="#FFDB70" fill-opacity="0.2"/>
+    <text x="22" y="32" class="font-mono" font-size="11" font-weight="800" fill="#FFDB70" text-anchor="middle">01</text>
+    <text x="42" y="32" class="font-sans" font-size="13.5" font-weight="700" fill="#FFFFFF">Discover &amp; Scope</text>
+    <text x="16" y="62" class="font-sans" font-size="11.5" font-weight="400" fill="#CBD5E1">• Pain point synthesis</text>
+    <text x="16" y="82" class="font-sans" font-size="11.5" font-weight="400" fill="#CBD5E1">• Strategic constraints</text>
+    <text x="16" y="102" class="font-sans" font-size="11.5" font-weight="400" fill="#CBD5E1">• Core user outcomes</text>
   </g>
 
-  <!-- Step 2 -->
-  <g transform="translate(254, 60)">
-    <rect width="216" height="118" rx="10" fill="url(#nodeGrad)" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1"/>
-    <text x="16" y="27" class="font-mono" font-size="11" font-weight="700" fill="#FFDB70">02</text>
-    <text x="38" y="27" class="font-sans" font-size="13" font-weight="600" fill="#FAFAFA">System Architecture</text>
-    <text x="16" y="56" class="font-sans" font-size="11.5" font-weight="400" fill="#A1A1AA">Information architecture</text>
-    <text x="16" y="74" class="font-sans" font-size="11.5" font-weight="400" fill="#A1A1AA">End-to-end user flows</text>
-    <text x="16" y="92" class="font-sans" font-size="11.5" font-weight="400" fill="#A1A1AA">Domain logic and state models</text>
+  <!-- Step 02: System Logic -->
+  <g transform="translate(257, 64)">
+    <rect width="215" height="126" rx="12" fill="url(#nodeActiveGrad)" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1"/>
+    <rect x="1" y="1" width="213" height="2.5" fill="#A855F7" fill-opacity="0.9"/>
+    <circle cx="22" cy="28" r="11" fill="#A855F7" fill-opacity="0.2"/>
+    <text x="22" y="32" class="font-mono" font-size="11" font-weight="800" fill="#D8B4FE" text-anchor="middle">02</text>
+    <text x="42" y="32" class="font-sans" font-size="13.5" font-weight="700" fill="#FFFFFF">System Architecture</text>
+    <text x="16" y="62" class="font-sans" font-size="11.5" font-weight="400" fill="#CBD5E1">• Information architecture</text>
+    <text x="16" y="82" class="font-sans" font-size="11.5" font-weight="400" fill="#CBD5E1">• End-to-end user flows</text>
+    <text x="16" y="102" class="font-sans" font-size="11.5" font-weight="400" fill="#CBD5E1">• State logic and data models</text>
   </g>
 
-  <!-- Step 3 -->
-  <g transform="translate(486, 60)">
-    <rect width="210" height="118" rx="10" fill="url(#nodeGrad)" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1"/>
-    <text x="16" y="27" class="font-mono" font-size="11" font-weight="700" fill="#FFDB70">03</text>
-    <text x="38" y="27" class="font-sans" font-size="13" font-weight="600" fill="#FAFAFA">UX &amp; Wireframing</text>
-    <text x="16" y="56" class="font-sans" font-size="11.5" font-weight="400" fill="#A1A1AA">Low-to-mid fidelity concepts</text>
-    <text x="16" y="74" class="font-sans" font-size="11.5" font-weight="400" fill="#A1A1AA">Interaction hierarchy tests</text>
-    <text x="16" y="92" class="font-sans" font-size="11.5" font-weight="400" fill="#A1A1AA">Rapid validation cycles</text>
+  <!-- Step 03: UX & Wireframing -->
+  <g transform="translate(488, 64)">
+    <rect width="210" height="126" rx="12" fill="url(#nodeActiveGrad)" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1"/>
+    <rect x="1" y="1" width="208" height="2.5" fill="#38BDF8" fill-opacity="0.9"/>
+    <circle cx="22" cy="28" r="11" fill="#38BDF8" fill-opacity="0.2"/>
+    <text x="22" y="32" class="font-mono" font-size="11" font-weight="800" fill="#7DD3FC" text-anchor="middle">03</text>
+    <text x="42" y="32" class="font-sans" font-size="13.5" font-weight="700" fill="#FFFFFF">UX &amp; Wireframing</text>
+    <text x="16" y="62" class="font-sans" font-size="11.5" font-weight="400" fill="#CBD5E1">• Low-to-mid fidelity flows</text>
+    <text x="16" y="82" class="font-sans" font-size="11.5" font-weight="400" fill="#CBD5E1">• Interaction hierarchies</text>
+    <text x="16" y="102" class="font-sans" font-size="11.5" font-weight="400" fill="#CBD5E1">• Rapid validation loops</text>
   </g>
 
-  <!-- Step 4 -->
-  <g transform="translate(712, 60)">
-    <rect width="216" height="118" rx="10" fill="url(#nodeGrad)" stroke="#FFDB70" stroke-opacity="0.3" stroke-width="1"/>
-    <text x="16" y="27" class="font-mono" font-size="11" font-weight="700" fill="#FFDB70">04</text>
-    <text x="38" y="27" class="font-sans" font-size="13" font-weight="600" fill="#FFDB70">Engineering Bridge</text>
-    <text x="16" y="56" class="font-sans" font-size="11.5" font-weight="400" fill="#E4E4E7">Technical feasibility checks</text>
-    <text x="16" y="74" class="font-sans" font-size="11.5" font-weight="400" fill="#E4E4E7">Next.js and TypeScript specs</text>
-    <text x="16" y="92" class="font-sans" font-size="11.5" font-weight="400" fill="#E4E4E7">Design system governance</text>
+  <!-- Step 04: Engineering Bridge -->
+  <g transform="translate(714, 64)" class="glow-node">
+    <rect width="210" height="126" rx="12" fill="url(#nodeActiveGrad)" stroke="#10B981" stroke-opacity="0.5" stroke-width="1.5"/>
+    <rect x="1" y="1" width="208" height="2.5" fill="#10B981" fill-opacity="0.9"/>
+    <circle cx="22" cy="28" r="11" fill="#10B981" fill-opacity="0.2"/>
+    <text x="22" y="32" class="font-mono" font-size="11" font-weight="800" fill="#34D399" text-anchor="middle">04</text>
+    <text x="42" y="32" class="font-sans" font-size="13.5" font-weight="700" fill="#34D399">Engineering Bridge</text>
+    <text x="16" y="62" class="font-sans" font-size="11.5" font-weight="400" fill="#E2E8F0">• Technical feasibility</text>
+    <text x="16" y="82" class="font-sans" font-size="11.5" font-weight="400" fill="#E2E8F0">• Next.js &amp; TypeScript build</text>
+    <text x="16" y="102" class="font-sans" font-size="11.5" font-weight="400" fill="#E2E8F0">• Anti-slop quality gates</text>
   </g>
 </svg>

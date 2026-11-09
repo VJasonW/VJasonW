@@ -1,14 +1,22 @@
 <div align="center">
 
+  <!-- Kinetic Display Banner -->
   <img src="./assets/banner.svg" alt="Jason Widjaya - Product and System Architecture" width="100%" />
 
   <br/><br/>
 
+  <!-- High-Energy Social & Status Bar -->
   <p align="center">
-    <a href="https://www.jasonwidjaya.my.id/"><strong>Portfolio</strong></a> &nbsp;&bull;&nbsp;
-    <a href="mailto:jason.widjaya123@gmail.com"><strong>Email</strong></a> &nbsp;&bull;&nbsp;
-    <a href="https://github.com/VJasonW"><strong>GitHub</strong></a> &nbsp;&bull;&nbsp;
-    <span>Semarang, Indonesia (GMT+7)</span>
+    <a href="https://www.jasonwidjaya.my.id/">
+      <img src="https://img.shields.io/badge/Portfolio-jasonwidjaya.my.id-FFDB70?style=for-the-badge&logo=googlechrome&logoColor=07070A&labelColor=151424" alt="Portfolio" />
+    </a>
+    <a href="mailto:jason.widjaya123@gmail.com">
+      <img src="https://img.shields.io/badge/Direct_Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white&labelColor=151424" alt="Email" />
+    </a>
+    <a href="https://github.com/VJasonW">
+      <img src="https://img.shields.io/badge/GitHub-VJasonW-A855F7?style=for-the-badge&logo=github&logoColor=white&labelColor=151424" alt="GitHub" />
+    </a>
+    <img src="https://img.shields.io/badge/Location-Semarang%2C_ID-38BDF8?style=for-the-badge&logo=googlemaps&logoColor=white&labelColor=151424" alt="Location" />
   </p>
 
 </div>
@@ -19,7 +27,7 @@
 
 > "Turning user pain points into coherent system logic, clear UX architecture, and creative roadmaps."
 
-I am a Product Manager and System Architect based in Semarang, Indonesia. I specialize in the intersection of digital product strategy, information architecture, and technical feasibility. Rather than building feature bloat or generic templated interfaces, I focus on the structural why and how: aligning engineering capabilities with intuitive user outcomes.
+I am a **Product Manager and System Architect** based in Semarang, Indonesia. I operate at the critical intersection of product strategy, human-centered interaction architecture, and technical execution. Rather than building feature bloat or generic templated interfaces, I focus on the structural why and how: aligning engineering capabilities with intuitive user outcomes.
 
 <br/>
 
@@ -36,21 +44,21 @@ I am a Product Manager and System Architect based in Semarang, Indonesia. I spec
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h3>Product &amp; System Architecture</h3>
+      <h3>01 / Product &amp; System Architecture</h3>
       <p>Defining domain models, system states, and end-to-end user flows. Deconstructing ambiguous business problems into clear, modular functional specifications.</p>
     </td>
     <td width="50%" valign="top">
-      <h3>UX Strategy &amp; Wireframing</h3>
+      <h3>02 / UX Strategy &amp; Wireframing</h3>
       <p>Translating conceptual logic into structural wireframes and interaction hierarchies. Prioritizing information density and friction reduction before visual polish.</p>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3>Design Engineering Discipline</h3>
-      <p>Enforcing high design taste and eliminating boilerplate slop. Prioritizing clear typography, purposeful whitespace, and authentic motion over generic AI defaults.</p>
+      <h3>03 / Anti-Slop Web Execution</h3>
+      <p>Championing deliberate, non-templated digital products. Enforcing strict typography, purposeful whitespace, and authentic motion dynamics over generic AI clichés.</p>
     </td>
     <td width="50%" valign="top">
-      <h3>Cross-Functional Alignment</h3>
+      <h3>04 / Cross-Functional Alignment</h3>
       <p>Connecting design vision with engineering reality. Ensuring product roadmaps are technically viable, testable, and directly aligned with business metrics.</p>
     </td>
   </tr>
@@ -58,25 +66,38 @@ I am a Product Manager and System Architect based in Semarang, Indonesia. I spec
 
 <br/>
 
-## Technical Ecosystem
+## Technical Ecosystem &amp; Toolkit
 
-- **Product &amp; Discovery**: Figma, Linear, Notion, Information Architecture, User Journey Mapping
-- **Frontend &amp; Architecture**: TypeScript, JavaScript, Next.js, React, Tailwind CSS, Node.js
-- **Quality &amp; Standards**: Anti-Slop Heuristics, RESTful APIs, Git Workflow, Accessibility (WCAG AA)
+<p align="left">
+  <strong>Product &amp; Strategy</strong><br/>
+  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Figma" />
+  <img src="https://img.shields.io/badge/Linear-5E6AD2?style=for-the-badge&logo=linear&logoColor=white" alt="Linear" />
+  <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white" alt="Notion" />
+</p>
+
+<p align="left">
+  <strong>Engineering Stack</strong><br/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+</p>
 
 <br/>
 
-## Contribution Activity
+## Activity &amp; Momentum
 
 <div align="center">
   <a href="https://github.com/VJasonW">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=VJasonW&theme=dark&background=0D0D11&border=27272A&stroke=27272A&ring=FFDB70&fire=FFDB70&currStreakLabel=FFDB70" alt="Jason's GitHub Streak Activity" width="85%" />
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=VJasonW&theme=dark&background=0D0D11&border=FFDB70&stroke=27272A&ring=FFDB70&fire=FFDB70&currStreakLabel=FFDB70" alt="Jason's GitHub Streak Activity" width="85%" />
   </a>
 </div>
 
 <br/>
 
-## Selected Repositories
+## Featured Repositories
 
 - **[anti-slop](https://github.com/VJasonW/anti-slop)**  
   Systematic rules and heuristics for AI coding agents to eliminate generic boilerplate, uninspired layouts, and UI design slop.
@@ -92,9 +113,9 @@ I am a Product Manager and System Architect based in Semarang, Indonesia. I spec
 
 <br/>
 
-## Contact &amp; Profiles
+## Connect &amp; Collaborate
 
-- Portfolio and Case Studies: [jasonwidjaya.my.id](https://www.jasonwidjaya.my.id/)
-- GitHub Profile: [@VJasonW](https://github.com/VJasonW)
-- Direct Email: [jason.widjaya123@gmail.com](mailto:jason.widjaya123@gmail.com)
-- Location: Semarang, Central Java, Indonesia
+- **Portfolio**: [jasonwidjaya.my.id](https://www.jasonwidjaya.my.id/)
+- **GitHub**: [@VJasonW](https://github.com/VJasonW)
+- **Direct Inquiries**: [jason.widjaya123@gmail.com](mailto:jason.widjaya123@gmail.com)
+- **Base**: Semarang, Central Java, Indonesia

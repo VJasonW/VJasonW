@@ -1,19 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="100%" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="100%" height="100%" fill="none">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1200" y2="380" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#09090D"/>
-      <stop offset="60%" stop-color="#0E0E14"/>
-      <stop offset="100%" stop-color="#07070A"/>
+    <!-- Background Canvas Gradients -->
+    <linearGradient id="bgMesh" x1="0" y1="0" x2="1200" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#07070A"/>
+      <stop offset="40%" stop-color="#11111A"/>
+      <stop offset="70%" stop-color="#14111E"/>
+      <stop offset="100%" stop-color="#08080C"/>
     </linearGradient>
 
-    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#181822"/>
-      <stop offset="100%" stop-color="#101016"/>
-    </linearGradient>
+    <!-- Radiant Ambient Spotlights -->
+    <radialGradient id="solarGlow" cx="80%" cy="15%" r="65%">
+      <stop offset="0%" stop-color="#FFDB70" stop-opacity="0.25"/>
+      <stop offset="30%" stop-color="#FFB800" stop-opacity="0.08"/>
+      <stop offset="70%" stop-color="#FF8A00" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#07070A" stop-opacity="0"/>
+    </radialGradient>
 
-    <linearGradient id="textGrad" x1="0" y1="0" x2="1" y2="0">
+    <radialGradient id="plasmaGlow" cx="20%" cy="85%" r="60%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.22"/>
+      <stop offset="40%" stop-color="#4F46E5" stop-opacity="0.08"/>
+      <stop offset="80%" stop-color="#07070A" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Animated Shimmer Gradient for Headline -->
+    <linearGradient id="shimmerGrad" x1="0%" y1="0%" x2="200%" y2="0%">
       <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#E4E4E7"/>
+      <stop offset="25%" stop-color="#FFDB70"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="75%" stop-color="#FFE899"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+      <animate attributeName="x1" from="-100%" to="100%" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="x2" from="100%" to="300%" dur="6s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <!-- Card Backgrounds -->
+    <linearGradient id="cardGrad1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1F1E2E" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#12111C" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- Border Beam Stroke Gradient -->
+    <linearGradient id="beamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFDB70" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#FF8A00" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#A855F7" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#FFDB70" stop-opacity="0.1"/>
     </linearGradient>
 
     <style>
@@ -23,67 +54,131 @@
       .font-mono {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       }
+
+      /* Animated Border Beam */
+      @keyframes borderRun {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -3276; }
+      }
+      .animated-border {
+        stroke-dasharray: 220 500;
+        animation: borderRun 10s linear infinite;
+      }
+
+      /* Pulse Beacon */
+      @keyframes beaconPing {
+        0% { r: 4; opacity: 1; }
+        70% { r: 14; opacity: 0; }
+        100% { r: 14; opacity: 0; }
+      }
+      .beacon-ring {
+        animation: beaconPing 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+      }
+
+      /* Geometric Flow Float */
+      @keyframes floatSlow {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-4px); }
+        100% { transform: translateY(0px); }
+      }
+      .float-box {
+        animation: floatSlow 5s ease-in-out infinite;
+      }
     </style>
   </defs>
 
-  <!-- Canvas Surface -->
-  <rect width="1200" height="380" rx="16" fill="url(#bgGrad)"/>
+  <!-- Deep Velvet Canvas Surface -->
+  <rect width="1200" height="440" rx="22" fill="url(#bgMesh)"/>
+  <rect width="1200" height="440" rx="22" fill="url(#solarGlow)"/>
+  <rect width="1200" height="440" rx="22" fill="url(#plasmaGlow)"/>
 
-  <!-- Architectural Outer Border -->
-  <rect x="1" y="1" width="1198" height="378" rx="15" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1.5"/>
+  <!-- Static Base Border -->
+  <rect x="1.5" y="1.5" width="1197" height="437" rx="21" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1.5"/>
 
-  <!-- Top Metadata Bar -->
-  <g transform="translate(56, 52)">
-    <!-- Availability Indicator -->
-    <rect x="0" y="0" width="220" height="30" rx="8" fill="#14141C" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1"/>
-    <circle cx="16" cy="15" r="4" fill="#10B981"/>
-    <text x="28" y="19" class="font-sans" font-size="11" font-weight="600" fill="#E4E4E7" letter-spacing="0.03em">OPEN FOR PROJECTS</text>
+  <!-- Kinetic Border Beam Layer -->
+  <rect x="1.5" y="1.5" width="1197" height="437" rx="21" stroke="url(#beamGrad)" stroke-width="2.5" fill="none" class="animated-border"/>
 
-    <!-- Location -->
-    <g transform="translate(232, 0)">
-      <rect x="0" y="0" width="180" height="30" rx="8" fill="#14141C" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1"/>
-      <text x="14" y="19" class="font-sans" font-size="11" font-weight="500" fill="#A1A1AA">Semarang, ID (GMT+7)</text>
+  <!-- Inner Architectural Viewport -->
+  <rect x="22" y="22" width="1156" height="396" rx="16" stroke="#FFFFFF" stroke-opacity="0.06" stroke-width="1"/>
+
+  <!-- Decorative Architectural Grid Lines -->
+  <g opacity="0.18">
+    <line x1="22" y1="100" x2="1178" y2="100" stroke="#FFDB70" stroke-width="1" stroke-dasharray="3 6"/>
+    <line x1="22" y1="260" x2="1178" y2="260" stroke="#FFDB70" stroke-width="1" stroke-dasharray="3 6"/>
+    <line x1="400" y1="22" x2="400" y2="418" stroke="#FFFFFF" stroke-width="1" stroke-dasharray="2 8"/>
+    <line x1="800" y1="22" x2="800" y2="418" stroke="#FFFFFF" stroke-width="1" stroke-dasharray="2 8"/>
+  </g>
+
+  <!-- TOP HEADER HUD -->
+  <g transform="translate(56, 50)">
+    <!-- Active Status Beacon -->
+    <rect x="0" y="0" width="248" height="34" rx="17" fill="#151424" stroke="#FFDB70" stroke-opacity="0.3" stroke-width="1.2"/>
+    <circle cx="18" cy="17" r="4.5" fill="#10B981"/>
+    <circle cx="18" cy="17" r="4.5" fill="none" stroke="#10B981" stroke-width="2" class="beacon-ring"/>
+    <text x="32" y="21.5" class="font-sans" font-size="11" font-weight="700" fill="#F4F4F5" letter-spacing="0.04em">OPEN FOR COLLABORATION</text>
+
+    <!-- Location Pill -->
+    <g transform="translate(262, 0)">
+      <rect x="0" y="0" width="210" height="34" rx="17" fill="#151424" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1"/>
+      <circle cx="18" cy="17" r="3" fill="#FFDB70"/>
+      <text x="30" y="21.5" class="font-sans" font-size="11" font-weight="600" fill="#CBD5E1">SEMARANG, ID (GMT+7)</text>
     </g>
 
-    <!-- Portfolio Domain -->
-    <g transform="translate(930, 0)">
-      <text x="158" y="19.5" class="font-mono" font-size="12" font-weight="500" fill="#FFDB70" text-anchor="end">jasonwidjaya.my.id</text>
+    <!-- Portfolio Domain Pill -->
+    <g transform="translate(860, 0)">
+      <rect x="0" y="0" width="228" height="34" rx="17" fill="#FFDB70" fill-opacity="0.1" stroke="#FFDB70" stroke-opacity="0.4" stroke-width="1.2"/>
+      <text x="114" y="21.5" class="font-mono" font-size="12" font-weight="700" fill="#FFDB70" text-anchor="middle" letter-spacing="0.02em">jasonwidjaya.my.id ↗</text>
     </g>
   </g>
 
-  <!-- Headline Section -->
-  <g transform="translate(56, 134)">
-    <text x="0" y="0" class="font-mono" font-size="12" font-weight="600" fill="#FFDB70" letter-spacing="0.05em">PRODUCT &amp; SYSTEM ARCHITECTURE</text>
-    <text x="0" y="44" class="font-sans" font-size="44" font-weight="800" fill="url(#textGrad)" letter-spacing="-0.03em">JASON WIDJAYA</text>
-    <text x="0" y="78" class="font-sans" font-size="15" font-weight="400" fill="#A1A1AA">
-      Deconstructing complex problem spaces into coherent system logic, clear UX architecture, and execution roadmaps.
+  <!-- MAIN HEADLINE & HERO STATEMENT -->
+  <g transform="translate(56, 136)">
+    <!-- Category Eyebrow Badge -->
+    <rect x="0" y="0" width="270" height="24" rx="6" fill="#FFDB70" fill-opacity="0.15" stroke="#FFDB70" stroke-opacity="0.5" stroke-width="1"/>
+    <text x="12" y="16" class="font-mono" font-size="11" font-weight="700" fill="#FFDB70" letter-spacing="0.08em">PRODUCT &amp; SYSTEM ARCHITECTURE</text>
+
+    <!-- Kinetic Giant Display Typography -->
+    <text x="0" y="58" class="font-sans" font-size="52" font-weight="900" fill="url(#shimmerGrad)" letter-spacing="-0.035em">JASON WIDJAYA</text>
+
+    <!-- Dynamic Value Prop Subtitle -->
+    <text x="0" y="96" class="font-sans" font-size="16.5" font-weight="400" fill="#E2E8F0" letter-spacing="-0.01em">
+      Turning user pain points into coherent system logic, high-taste UX architecture, and creative roadmaps.
     </text>
   </g>
 
-  <!-- Three Focus Cards -->
-  <g transform="translate(56, 252)">
-    <!-- Column 1 -->
+  <!-- BOTTOM HIGH-OCTANE BENTO TILES -->
+  <g transform="translate(56, 276)" class="float-box">
+    <!-- Card 1: Product Logic -->
     <g transform="translate(0, 0)">
-      <rect width="350" height="74" rx="10" fill="url(#cardGrad)" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1"/>
-      <text x="16" y="26" class="font-mono" font-size="10.5" font-weight="600" fill="#FFDB70" letter-spacing="0.04em">01 / LOGIC &amp; SCOPING</text>
-      <text x="16" y="48" class="font-sans" font-size="13.5" font-weight="600" fill="#FAFAFA">System Architecture</text>
-      <text x="16" y="64" class="font-sans" font-size="11.5" font-weight="400" fill="#A1A1AA">End-to-end user flows, domain models, and specs</text>
+      <rect width="350" height="100" rx="14" fill="url(#cardGrad1)" stroke="#FFDB70" stroke-opacity="0.25" stroke-width="1.2"/>
+      <rect x="1" y="1" width="348" height="2" fill="#FFDB70" fill-opacity="0.6"/>
+      <circle cx="28" cy="30" r="12" fill="#FFDB70" fill-opacity="0.15"/>
+      <text x="28" y="34.5" class="font-mono" font-size="11" font-weight="800" fill="#FFDB70" text-anchor="middle">01</text>
+      <text x="48" y="33" class="font-sans" font-size="15" font-weight="700" fill="#FFFFFF">System Architecture</text>
+      <text x="16" y="60" class="font-sans" font-size="12" font-weight="400" fill="#CBD5E1">End-to-end user flows, domain logic</text>
+      <text x="16" y="78" class="font-sans" font-size="12" font-weight="400" fill="#94A3B8">Modular functional specifications &amp; maps</text>
     </g>
 
-    <!-- Column 2 -->
-    <g transform="translate(368, 0)">
-      <rect width="350" height="74" rx="10" fill="url(#cardGrad)" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1"/>
-      <text x="16" y="26" class="font-mono" font-size="10.5" font-weight="600" fill="#FFDB70" letter-spacing="0.04em">02 / INTERACTION PATTERNS</text>
-      <text x="16" y="48" class="font-sans" font-size="13.5" font-weight="600" fill="#FAFAFA">UX &amp; Wireframing</text>
-      <text x="16" y="64" class="font-sans" font-size="11.5" font-weight="400" fill="#A1A1AA">Information density, wireframes, and prototypes</text>
+    <!-- Card 2: UX Strategy -->
+    <g transform="translate(370, 0)">
+      <rect width="350" height="100" rx="14" fill="url(#cardGrad1)" stroke="#A855F7" stroke-opacity="0.3" stroke-width="1.2"/>
+      <rect x="1" y="1" width="348" height="2" fill="#A855F7" fill-opacity="0.7"/>
+      <circle cx="28" cy="30" r="12" fill="#A855F7" fill-opacity="0.2"/>
+      <text x="28" y="34.5" class="font-mono" font-size="11" font-weight="800" fill="#D8B4FE" text-anchor="middle">02</text>
+      <text x="48" y="33" class="font-sans" font-size="15" font-weight="700" fill="#FFFFFF">UX &amp; Wireframing</text>
+      <text x="16" y="60" class="font-sans" font-size="12" font-weight="400" fill="#CBD5E1">Interaction patterns &amp; friction mapping</text>
+      <text x="16" y="78" class="font-sans" font-size="12" font-weight="400" fill="#94A3B8">Rapid low-to-mid fidelity prototyping</text>
     </g>
 
-    <!-- Column 3 -->
-    <g transform="translate(736, 0)">
-      <rect width="352" height="74" rx="10" fill="url(#cardGrad)" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1"/>
-      <text x="16" y="26" class="font-mono" font-size="10.5" font-weight="600" fill="#FFDB70" letter-spacing="0.04em">03 / TECHNICAL BRIDGE</text>
-      <text x="16" y="48" class="font-sans" font-size="13.5" font-weight="600" fill="#FAFAFA">Engineering Feasibility</text>
-      <text x="16" y="64" class="font-sans" font-size="11.5" font-weight="400" fill="#A1A1AA">TypeScript, Next.js, and design system governance</text>
+    <!-- Card 3: Anti-Slop Code & Feasibility -->
+    <g transform="translate(740, 0)">
+      <rect width="348" height="100" rx="14" fill="url(#cardGrad1)" stroke="#10B981" stroke-opacity="0.3" stroke-width="1.2"/>
+      <rect x="1" y="1" width="346" height="2" fill="#10B981" fill-opacity="0.7"/>
+      <circle cx="28" cy="30" r="12" fill="#10B981" fill-opacity="0.2"/>
+      <text x="28" y="34.5" class="font-mono" font-size="11" font-weight="800" fill="#34D399" text-anchor="middle">03</text>
+      <text x="48" y="33" class="font-sans" font-size="15" font-weight="700" fill="#FFFFFF">Anti-Slop Web Build</text>
+      <text x="16" y="60" class="font-sans" font-size="12" font-weight="400" fill="#CBD5E1">Next.js, TypeScript &amp; design systems</text>
+      <text x="16" y="78" class="font-sans" font-size="12" font-weight="400" fill="#94A3B8">Bridging product vision with clean code</text>
     </g>
   </g>
 </svg>
